@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Thunder Hill Speedway | Menomonie, WI | 1/6 Mile Clay Oval</title>
+  <meta name="description" content="Thunder Hill Speedway - Family-owned 1/6 mile clay oval track in Menomonie, Wisconsin. Kart racing, Micro Sprints, Midgets. Established 1993.">
+  <link href="https://fonts.googleapis.com/css2?family=Russo+One&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --green: #00d400;
+      --green-dark: #00a800;
+      --green-glow: rgba(0,212,0,0.3);
+      --black: #0a0a0a;
+      --dark: #111111;
+      --dark-card: #1a1a1a;
+      --dark-border: #2a2a2a;
+      --white: #ffffff;
+      --gray: #888888;
+      --light-gray: #cccccc;
+      --red: #ff3333;
+      --yellow: #ffd700;
+      --orange: #ff6600;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background: var(--black);
+      color: var(--white);
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .racing-font {
+      font-family: 'Russo One', sans-serif;
+    }
+
+    a { color: var(--green); text-decoration: none; }
+    a:hover { color: var(--green-dark); }
+
+    /* ===== NAV ===== */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(10,10,10,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--dark-border);
+      padding: 0 2rem;
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      font-family: 'Russo One', sans-serif;
+      font-size: 1.3rem;
+      color: var(--green);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .nav-logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--green);
+      border-radius: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: var(--black);
+      font-weight: 900;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--light-gray);
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover, .nav-links a.active { color: var(--green); }
+
+    .nav-cta {
+      background: var(--green);
+      color: var(--black);
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.2s;
+      border: none;
+      cursor: pointer;
+    }
+
+    .nav-cta:hover { background: var(--green-dark); color: var(--black); }
+
+    .mobile-menu { display: none; background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+    /* ===== HERO ===== */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(180deg, rgba(10,10,10,0) 0%, rgba(10,10,10,0.7) 50%, var(--black) 100%),
+                  linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background:
+        radial-gradient(ellipse at 20% 50%, var(--green-glow) 0%, transparent 50%),
+        radial-gradient(ellipse at 80% 50%, rgba(255,102,0,0.1) 0%, transparent 50%);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 900px;
+      padding: 2rem;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(0,212,0,0.15);
+      border: 1px solid var(--green);
+      color: var(--green);
+      padding: 0.4rem 1rem;
+      border-radius: 25px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+    }
+
+    .hero h1 .green { color: var(--green); }
+
+    .hero-sub {
+      font-size: 1.25rem;
+      color: var(--light-gray);
+      margin-bottom: 2rem;
+      font-weight: 400;
+    }
+
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-stat-value {
+      font-family: 'Russo One', sans-serif;
+      font-size: 2rem;
+      color: var(--green);
+    }
+
+    .hero-stat-label {
+      font-size: 0.75rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 0.8rem 2rem;
+      border-radius: 6px;
+      font-weight: 800;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: all 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      border: none;
+    }
+
+    .btn-green { background: var(--green); color: var(--black); }
+    .btn-green:hover { background: var(--green-dark); color: var(--black); }
+    .btn-outline { background: transparent; border: 2px solid var(--green); color: var(--green); }
+    .btn-outline:hover { background: var(--green); color: var(--black); }
+    .btn-white { background: var(--white); color: var(--black); }
+    .btn-sm { padding: 0.5rem 1.25rem; font-size: 0.8rem; }
+
+    /* ===== COUNTDOWN ===== */
+    .countdown-section {
+      background: linear-gradient(180deg, var(--black) 0%, var(--dark) 100%);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .countdown-label {
+      font-size: 0.85rem;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .countdown-event {
+      font-family: 'Russo One', sans-serif;
+      font-size: 1.75rem;
+      margin-bottom: 2rem;
+    }
+
+    .countdown {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+    }
+
+    .countdown-box {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 12px;
+      padding: 1.25rem 1.5rem;
+      min-width: 100px;
+    }
+
+    .countdown-num {
+      font-family: 'Russo One', sans-serif;
+      font-size: 2.5rem;
+      color: var(--green);
+      line-height: 1;
+    }
+
+    .countdown-unit {
+      font-size: 0.7rem;
+      color: var(--gray);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-top: 0.35rem;
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      padding: 5rem 2rem;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .section-tag {
+      color: var(--green);
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 0.5rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      text-transform: uppercase;
+    }
+
+    .section-sub {
+      color: var(--gray);
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* ===== SCHEDULE ===== */
+    .schedule-section {
+      background: var(--dark);
+    }
+
+    .schedule-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1rem;
+    }
+
+    .event-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+      display: flex;
+      gap: 1.25rem;
+      align-items: flex-start;
+    }
+
+    .event-card:hover {
+      border-color: var(--green);
+      box-shadow: 0 0 20px var(--green-glow);
+    }
+
+    .event-date {
+      background: var(--green);
+      color: var(--black);
+      border-radius: 8px;
+      padding: 0.5rem 0.75rem;
+      text-align: center;
+      min-width: 60px;
+      flex-shrink: 0;
+    }
+
+    .event-date-month {
+      font-size: 0.65rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .event-date-day {
+      font-family: 'Russo One', sans-serif;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    .event-date-dow {
+      font-size: 0.6rem;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .event-info { flex: 1; }
+
+    .event-name {
+      font-weight: 800;
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+
+    .event-details {
+      font-size: 0.85rem;
+      color: var(--gray);
+      line-height: 1.5;
+    }
+
+    .event-special {
+      display: inline-block;
+      background: rgba(255,215,0,0.15);
+      color: var(--yellow);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      margin-top: 0.5rem;
+    }
+
+    /* ===== CLASSES ===== */
+    .classes-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+    }
+
+    .class-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s;
+    }
+
+    .class-card:hover {
+      border-color: var(--green);
+      transform: translateY(-4px);
+    }
+
+    .class-icon {
+      font-size: 2rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .class-name {
+      font-weight: 800;
+      font-size: 0.9rem;
+    }
+
+    .class-detail {
+      font-size: 0.75rem;
+      color: var(--gray);
+      margin-top: 0.25rem;
+    }
+
+    /* ===== INFO CARDS ===== */
+    .info-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .info-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 12px;
+      padding: 2rem;
+    }
+
+    .info-card h3 {
+      color: var(--green);
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .info-card p, .info-card li {
+      color: var(--light-gray);
+      font-size: 0.9rem;
+      line-height: 1.7;
+    }
+
+    .info-card ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .info-card li {
+      padding: 0.3rem 0;
+      padding-left: 1.25rem;
+      position: relative;
+    }
+
+    .info-card li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.7rem;
+      width: 6px;
+      height: 6px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    /* ===== SPONSORS ===== */
+    .sponsors-section {
+      background: var(--dark);
+    }
+
+    .sponsor-tiers {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .sponsor-tier {
+      text-align: center;
+    }
+
+    .sponsor-tier-name {
+      font-size: 0.75rem;
+      color: var(--green);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .sponsor-logos {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .sponsor-logo {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      color: var(--light-gray);
+      font-weight: 700;
+      font-size: 0.85rem;
+      transition: all 0.3s;
+      min-width: 160px;
+      text-align: center;
+    }
+
+    .sponsor-logo:hover {
+      border-color: var(--green);
+      background: rgba(0,212,0,0.05);
+    }
+
+    .sponsor-logo.gold { border-color: var(--yellow); color: var(--yellow); }
+    .sponsor-logo.silver { border-color: #aaa; }
+
+    /* ===== SPONSOR CTA ===== */
+    .sponsor-cta {
+      background: linear-gradient(135deg, var(--dark-card) 0%, rgba(0,212,0,0.08) 100%);
+      border: 1px solid var(--green);
+      border-radius: 16px;
+      padding: 3rem;
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    .sponsor-cta h3 {
+      font-size: 1.5rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .sponsor-cta p {
+      color: var(--light-gray);
+      max-width: 600px;
+      margin: 0 auto 1.5rem;
+      line-height: 1.6;
+    }
+
+    .sponsor-packages {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 2rem;
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .sponsor-pkg {
+      background: var(--dark);
+      border: 1px solid var(--dark-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .sponsor-pkg.featured {
+      border-color: var(--green);
+      box-shadow: 0 0 20px var(--green-glow);
+    }
+
+    .sponsor-pkg-name {
+      font-family: 'Russo One', sans-serif;
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .sponsor-pkg-price {
+      color: var(--green);
+      font-family: 'Russo One', sans-serif;
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .sponsor-pkg-features {
+      list-style: none;
+      padding: 0;
+      font-size: 0.8rem;
+      color: var(--light-gray);
+    }
+
+    .sponsor-pkg-features li {
+      padding: 0.25rem 0;
+    }
+
+    /* ===== TRACK RENTAL ===== */
+    .rental-section {
+      background: var(--black);
+    }
+
+    .rental-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .rental-info h3 {
+      font-size: 1.75rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+
+    .rental-info p {
+      color: var(--light-gray);
+      line-height: 1.7;
+      margin-bottom: 1.5rem;
+    }
+
+    .rental-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .rental-feature {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.9rem;
+      color: var(--light-gray);
+    }
+
+    .rental-feature .check {
+      color: var(--green);
+      font-weight: 900;
+    }
+
+    .rental-visual {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .rental-visual .price {
+      font-family: 'Russo One', sans-serif;
+      font-size: 2.5rem;
+      color: var(--green);
+    }
+
+    .rental-visual .price-note {
+      color: var(--gray);
+      font-size: 0.85rem;
+      margin-top: 0.5rem;
+    }
+
+    /* ===== SOCIAL FEED ===== */
+    .social-section {
+      background: var(--dark);
+    }
+
+    .social-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1rem;
+    }
+
+    .social-card {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: all 0.3s;
+    }
+
+    .social-card:hover {
+      border-color: var(--green);
+    }
+
+    .social-card-platform {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--green);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+    }
+
+    .social-card-text {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: var(--light-gray);
+      margin-bottom: 0.75rem;
+    }
+
+    .social-card-meta {
+      font-size: 0.75rem;
+      color: var(--gray);
+    }
+
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    .social-link {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 8px;
+      padding: 0.6rem 1.25rem;
+      color: var(--light-gray);
+      font-weight: 600;
+      font-size: 0.85rem;
+      transition: all 0.2s;
+    }
+
+    .social-link:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--dark);
+      border-top: 1px solid var(--dark-border);
+      padding: 3rem 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-brand h3 {
+      font-family: 'Russo One', sans-serif;
+      color: var(--green);
+      font-size: 1.25rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .footer-brand p {
+      color: var(--gray);
+      font-size: 0.85rem;
+      line-height: 1.6;
+    }
+
+    .footer-col h4 {
+      color: var(--green);
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+    }
+
+    .footer-col a {
+      display: block;
+      color: var(--gray);
+      font-size: 0.85rem;
+      padding: 0.3rem 0;
+      transition: color 0.2s;
+    }
+
+    .footer-col a:hover { color: var(--green); }
+
+    .footer-bottom {
+      border-top: 1px solid var(--dark-border);
+      margin-top: 2rem;
+      padding-top: 1.5rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .footer-copy {
+      color: var(--gray);
+      font-size: 0.8rem;
+    }
+
+    .footer-credit {
+      color: var(--gray);
+      font-size: 0.75rem;
+      font-style: italic;
+    }
+
+    /* ===== CONTACT FORM ===== */
+    .contact-form {
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-label {
+      display: block;
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--green);
+      margin-bottom: 0.4rem;
+    }
+
+    .form-input, .form-textarea, .form-select {
+      width: 100%;
+      padding: 0.7rem 1rem;
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      border-radius: 8px;
+      color: var(--white);
+      font-size: 0.9rem;
+      font-family: inherit;
+      transition: border-color 0.2s;
+    }
+
+    .form-input:focus, .form-textarea:focus, .form-select:focus {
+      border-color: var(--green);
+      outline: none;
+    }
+
+    .form-textarea { min-height: 120px; resize: vertical; }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 768px) {
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      .mobile-menu { display: block; }
+      .hero h1 { font-size: 2.25rem; }
+      .hero-stats { gap: 1.5rem; }
+      .hero-stat-value { font-size: 1.5rem; }
+      .countdown { flex-wrap: wrap; }
+      .countdown-box { min-width: 70px; padding: 1rem; }
+      .countdown-num { font-size: 1.75rem; }
+      .schedule-grid { grid-template-columns: 1fr; }
+      .classes-grid { grid-template-columns: repeat(2, 1fr); }
+      .social-grid { grid-template-columns: 1fr 1fr; }
+      .rental-grid { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .sponsor-packages { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      .social-links { flex-wrap: wrap; }
+    }
+
+    /* ===== ANIMATIONS ===== */
+    @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.5;} }
+    .live-dot {
+      width: 8px;
+      height: 8px;
+      background: var(--red);
+      border-radius: 50%;
+      display: inline-block;
+      animation: pulse 1.5s infinite;
+      margin-right: 6px;
+    }
+
+    .scroll-section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+    .scroll-section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Checkered flag divider */
+    .checkered-divider {
+      height: 8px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--green) 0px, var(--green) 20px,
+        transparent 20px, transparent 40px
+      );
+      opacity: 0.3;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-logo-icon">TH</div>
+    THUNDER HILL SPEEDWAY
+  </div>
+  <ul class="nav-links">
+    <li><a href="#home" class="active">Home</a></li>
+    <li><a href="#schedule">Schedule</a></li>
+    <li><a href="#classes">Classes</a></li>
+    <li><a href="#info">Info</a></li>
+    <li><a href="#sponsors">Sponsors</a></li>
+    <li><a href="#rental">Rentals</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#tickets" class="nav-cta">Get Tickets</a>
+  <button class="mobile-menu" onclick="document.querySelector('.nav-links').style.display=document.querySelector('.nav-links').style.display==='flex'?'none':'flex'">&#9776;</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-badge">Est. 1993 | Menomonie, Wisconsin</div>
+    <h1>WHERE <span class="green">THUNDER</span> MEETS THE <span class="green">DIRT</span></h1>
+    <p class="hero-sub">1/6 mile clay oval. 60+ MPH. Family-owned. Pure adrenaline since 1993.<br>Home of the 2026 Midwest Karting Grand Nationals.</p>
+
+    <div class="hero-stats">
+      <div>
+        <div class="hero-stat-value">30+</div>
+        <div class="hero-stat-label">Years of Racing</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">9</div>
+        <div class="hero-stat-label">Racing Classes</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">$4,000</div>
+        <div class="hero-stat-label">Top Purse</div>
+      </div>
+      <div>
+        <div class="hero-stat-value">$10</div>
+        <div class="hero-stat-label">Adult Admission</div>
+      </div>
+    </div>
+
+    <div class="hero-buttons">
+      <a href="#schedule" class="btn btn-green">View Schedule</a>
+      <a href="#info" class="btn btn-outline">Plan Your Visit</a>
+    </div>
+  </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="countdown-section">
+  <div class="countdown-label"><span class="live-dot"></span> Next Event</div>
+  <div class="countdown-event">2026 Season Opener - Open Practice</div>
+  <div class="countdown" id="countdown"></div>
+</section>
+
+<div class="checkered-divider"></div>
+
+<!-- SCHEDULE -->
+<section class="schedule-section scroll-section" id="schedule">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">2026 Season</div>
+      <h2 class="section-title">Race Schedule</h2>
+      <p class="section-sub">Thursday nights May through September. Special events on Wed, Fri & Sat.</p>
+    </div>
+
+    <div class="schedule-grid" id="scheduleGrid"></div>
+  </div>
+</section>
+
+<div class="checkered-divider"></div>
+
+<!-- CLASSES -->
+<section class="scroll-section" id="classes">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Storm Series</div>
+      <h2 class="section-title">Racing Classes</h2>
+      <p class="section-sub">From Rookie Cage to 600 Micro Sprints — there's a class for every level of racer.</p>
+    </div>
+
+    <div class="classes-grid" id="classesGrid"></div>
+  </div>
+</section>
+
+<div class="checkered-divider"></div>
+
+<!-- VISITOR INFO -->
+<section class="scroll-section" id="info" style="background: var(--dark);">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Plan Your Visit</div>
+      <h2 class="section-title">Track Info</h2>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-card">
+        <h3>Admission</h3>
+        <ul>
+          <li>Adults: $10</li>
+          <li>Kids 10 & Under: FREE</li>
+          <li>Parking: FREE</li>
+          <li>Bleacher seating available</li>
+          <li>Bring your own lawn chairs</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Race Times</h3>
+        <ul>
+          <li>Wed, Thu, Fri Events: Gates at 5:30 PM</li>
+          <li>Hot Laps: 6:30 PM</li>
+          <li>Racing: 7:00 PM</li>
+          <li>Saturday Events: Racing at 6:00 PM</li>
+          <li>Season: May through September</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Food & Drink</h3>
+        <ul>
+          <li>Full concession stand on-site</li>
+          <li>Hot dogs, burgers, snacks & more</li>
+          <li>Cold drinks & refreshments</li>
+          <li>BYOB beer welcome (carry-in only)</li>
+          <li>No other outside drinks/food</li>
+        </ul>
+      </div>
+      <div class="info-card">
+        <h3>Location</h3>
+        <p>Thunder Hill Speedway<br>Menomonie, Wisconsin<br><br>
+        Located 1 hour east of Minneapolis/St. Paul, MN. Easy access from I-94.</p>
+        <br>
+        <a href="#contact" class="btn btn-sm btn-outline">Get Directions</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="checkered-divider"></div>
+
+<!-- SPONSORS -->
+<section class="sponsors-section scroll-section" id="sponsors">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Our Partners</div>
+      <h2 class="section-title">Sponsors</h2>
+      <p class="section-sub">Thunder Hill Speedway is proud to partner with these amazing businesses.</p>
+    </div>
+
+    <div class="sponsor-tiers">
+      <div class="sponsor-tier">
+        <div class="sponsor-tier-name">Presenting Sponsor</div>
+        <div class="sponsor-logos">
+          <div class="sponsor-logo gold">Quality FreightRate.com</div>
+        </div>
+      </div>
+
+      <div class="sponsor-tier">
+        <div class="sponsor-tier-name">Bar & Grill / Restaurant</div>
+        <div class="sponsor-logos">
+          <div class="sponsor-logo">Culver's Menomonie</div>
+          <div class="sponsor-logo">Kyote's Den</div>
+          <div class="sponsor-logo">Timber Inn Bar & Grill</div>
+        </div>
+      </div>
+
+      <div class="sponsor-tier">
+        <div class="sponsor-tier-name">Construction</div>
+        <div class="sponsor-logos">
+          <div class="sponsor-logo">Accurate Construction</div>
+          <div class="sponsor-logo">JK Concrete LLC</div>
+          <div class="sponsor-logo">Haas Inc.</div>
+          <div class="sponsor-logo">T&T Construction</div>
+        </div>
+      </div>
+
+      <div class="sponsor-tier">
+        <div class="sponsor-tier-name">Auto Parts & Racing</div>
+        <div class="sponsor-logos">
+          <div class="sponsor-logo">Auto Value</div>
+          <div class="sponsor-logo">Conrad's Auto Salvage</div>
+          <div class="sponsor-logo">GRP Motorsports</div>
+          <div class="sponsor-logo">Left Hander Performance</div>
+        </div>
+      </div>
+
+      <div class="sponsor-tier">
+        <div class="sponsor-tier-name">Home & Business</div>
+        <div class="sponsor-logos">
+          <div class="sponsor-logo">Great American Fireplace</div>
+          <div class="sponsor-logo">Menomonie Flooring Centre</div>
+          <div class="sponsor-logo">Hoffman Homes</div>
+          <div class="sponsor-logo">Denny's Appliance</div>
+          <div class="sponsor-logo">State Farm - David Jorgenson</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- BECOME A SPONSOR CTA -->
+    <div class="sponsor-cta">
+      <h3>Become a <span style="color:var(--green)">Sponsor</span></h3>
+      <p>Put your brand in front of thousands of racing fans every week. Thunder Hill Speedway offers sponsorship packages for businesses of all sizes. Track signage, PA announcements, social media features, and more.</p>
+
+      <div class="sponsor-packages">
+        <div class="sponsor-pkg">
+          <div class="sponsor-pkg-name" style="color:var(--yellow);">Bronze</div>
+          <div class="sponsor-pkg-price">$250</div>
+          <ul class="sponsor-pkg-features">
+            <li>Website logo placement</li>
+            <li>Social media mention</li>
+            <li>2 season passes</li>
+          </ul>
+        </div>
+        <div class="sponsor-pkg">
+          <div class="sponsor-pkg-name" style="color:#ccc;">Silver</div>
+          <div class="sponsor-pkg-price">$500</div>
+          <ul class="sponsor-pkg-features">
+            <li>Everything in Bronze</li>
+            <li>Track banner (you provide)</li>
+            <li>PA announcements</li>
+            <li>4 season passes</li>
+          </ul>
+        </div>
+        <div class="sponsor-pkg featured">
+          <div class="sponsor-pkg-name" style="color:var(--green);">Gold</div>
+          <div class="sponsor-pkg-price">$1,000</div>
+          <ul class="sponsor-pkg-features">
+            <li>Everything in Silver</li>
+            <li>Class naming rights</li>
+            <li>Featured social posts</li>
+            <li>VIP pit access</li>
+            <li>8 season passes</li>
+          </ul>
+        </div>
+        <div class="sponsor-pkg">
+          <div class="sponsor-pkg-name" style="color:var(--orange);">Title</div>
+          <div class="sponsor-pkg-price">Custom</div>
+          <ul class="sponsor-pkg-features">
+            <li>Everything in Gold</li>
+            <li>Event title sponsorship</li>
+            <li>Logo on all materials</li>
+            <li>Exclusive VIP experience</li>
+          </ul>
+        </div>
+      </div>
+
+      <br>
+      <a href="#contact" class="btn btn-green">Inquire About Sponsorship</a>
+    </div>
+  </div>
+</section>
+
+<div class="checkered-divider"></div>
+
+<!-- TRACK RENTAL -->
+<section class="rental-section scroll-section" id="rental">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Private Events</div>
+      <h2 class="section-title">Rent the Track</h2>
+      <p class="section-sub">Host your next event at Thunder Hill Speedway. Perfect for practice days, corporate events, birthday parties, and more.</p>
+    </div>
+
+    <div class="rental-grid">
+      <div class="rental-info">
+        <h3>Your Event. <span style="color:var(--green);">Our Track.</span></h3>
+        <p>Thunder Hill Speedway is available for private rental outside of regular race nights. Whether it's a practice session, team event, corporate outing, or a birthday party your kid will never forget — we've got you covered.</p>
+        <div class="rental-features">
+          <div class="rental-feature"><span class="check">&#10003;</span> Full track access</div>
+          <div class="rental-feature"><span class="check">&#10003;</span> Concessions available</div>
+          <div class="rental-feature"><span class="check">&#10003;</span> PA system included</div>
+          <div class="rental-feature"><span class="check">&#10003;</span> Bleacher seating</div>
+          <div class="rental-feature"><span class="check">&#10003;</span> Flexible scheduling</div>
+          <div class="rental-feature"><span class="check">&#10003;</span> Safety crew on-site</div>
+        </div>
+        <a href="#contact" class="btn btn-green">Book a Rental</a>
+      </div>
+
+      <div class="rental-visual">
+        <div style="font-size:3rem;margin-bottom:1rem;">&#127937;</div>
+        <div class="price">Contact for Pricing</div>
+        <div class="price-note">Rates vary by event type and duration</div>
+        <div style="margin-top:1.5rem;color:var(--gray);font-size:0.85rem;line-height:1.6;">
+          Practice Days<br>
+          Corporate Outings<br>
+          Birthday Parties<br>
+          Team Events<br>
+          Special Occasions
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="checkered-divider"></div>
+
+<!-- SOCIAL -->
+<section class="social-section scroll-section" id="social">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Stay Connected</div>
+      <h2 class="section-title">Follow the Action</h2>
+    </div>
+
+    <div class="social-grid" id="socialGrid"></div>
+
+    <div class="social-links">
+      <a href="https://www.facebook.com/ThunderHillSpeedway" target="_blank" class="social-link">Facebook</a>
+      <a href="#" class="social-link">Instagram</a>
+      <a href="#" class="social-link">TikTok</a>
+      <a href="#" class="social-link">YouTube</a>
+    </div>
+  </div>
+</section>
+
+<div class="checkered-divider"></div>
+
+<!-- CONTACT -->
+<section class="scroll-section" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <div class="section-tag">Get in Touch</div>
+      <h2 class="section-title">Contact Us</h2>
+      <p class="section-sub">Questions about racing, sponsorship, track rentals, or anything else? We'd love to hear from you.</p>
+    </div>
+
+    <div class="contact-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label class="form-label">Name</label>
+          <input class="form-input" placeholder="Your name">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="your@email.com">
+        </div>
+      </div>
+      <div class="form-group">
+        <label class="form-label">I'm Interested In</label>
+        <select class="form-select">
+          <option>General Inquiry</option>
+          <option>Racing / Registration</option>
+          <option>Sponsorship Opportunities</option>
+          <option>Track Rental / Private Events</option>
+          <option>Media / Press</option>
+          <option>Merchandise</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label">Message</label>
+        <textarea class="form-textarea" placeholder="Tell us what's on your mind..."></textarea>
+      </div>
+      <button class="btn btn-green" style="width:100%;" onclick="alert('Message sent! Thunder Hill Speedway will get back to you soon.')">Send Message</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Thunder Hill Speedway</h3>
+      <p>Family-owned 1/6 mile clay oval in Menomonie, Wisconsin. Providing affordable, exciting racing entertainment since 1993. Home of the 2026 Midwest Karting Grand Nationals.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Racing</h4>
+      <a href="#schedule">Schedule</a>
+      <a href="#classes">Classes</a>
+      <a href="https://www.myracepass.com/tracks/3512/schedule" target="_blank">Results</a>
+      <a href="#info">Rules & Info</a>
+    </div>
+    <div class="footer-col">
+      <h4>Business</h4>
+      <a href="#sponsors">Sponsors</a>
+      <a href="#rental">Track Rentals</a>
+      <a href="#contact">Contact</a>
+      <a href="#sponsors">Become a Sponsor</a>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <a href="https://www.facebook.com/ThunderHillSpeedway" target="_blank">Facebook</a>
+      <a href="#">Instagram</a>
+      <a href="#">TikTok</a>
+      <a href="#">YouTube</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">&copy; 2026 Thunder Hill Speedway. All Rights Reserved.</div>
+    <div class="footer-credit">Built with love by Cole | Powered by family</div>
+  </div>
+</footer>
+
+<script>
+// ===== COUNTDOWN TO NEXT EVENT =====
+function updateCountdown() {
+  const target = new Date('2026-05-03T17:30:00');
+  const now = new Date();
+  const diff = target - now;
+
+  if (diff <= 0) {
+    document.getElementById('countdown').innerHTML = '<div style="color:var(--green);font-family:Russo One;font-size:2rem;">RACE DAY!</div>';
+    return;
+  }
+
+  const days = Math.floor(diff / (1000*60*60*24));
+  const hours = Math.floor((diff % (1000*60*60*24)) / (1000*60*60));
+  const mins = Math.floor((diff % (1000*60*60)) / (1000*60));
+  const secs = Math.floor((diff % (1000*60)) / 1000);
+
+  document.getElementById('countdown').innerHTML = `
+    <div class="countdown-box"><div class="countdown-num">${days}</div><div class="countdown-unit">Days</div></div>
+    <div class="countdown-box"><div class="countdown-num">${hours}</div><div class="countdown-unit">Hours</div></div>
+    <div class="countdown-box"><div class="countdown-num">${mins}</div><div class="countdown-unit">Minutes</div></div>
+    <div class="countdown-box"><div class="countdown-num">${secs}</div><div class="countdown-unit">Seconds</div></div>
+  `;
+}
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ===== SCHEDULE =====
+const events = [
+  { date: 'May 3', dow: 'Sun', name: 'Open Practice', details: 'All classes - Season warm-up', special: '' },
+  { date: 'May 14', dow: 'Thu', name: 'Open Practice', details: 'All classes welcome', special: '' },
+  { date: 'May 22', dow: 'Thu', name: 'Season Opener', details: 'Full program - All classes', special: 'OPENING NIGHT' },
+  { date: 'May 29', dow: 'Thu', name: 'Thursday Night Thunder', details: 'Heat races & features - All classes', special: '' },
+  { date: 'Jun 5', dow: 'Thu', name: 'Thursday Night Thunder', details: 'Points race night', special: '' },
+  { date: 'Jun 12', dow: 'Thu', name: 'Thursday Night Thunder', details: 'Points race night', special: '' },
+  { date: 'Jun 14', dow: 'Sat', name: 'Micro Sprints Special', details: '600 Micro Sprint showcase', special: 'SPECIAL EVENT' },
+  { date: 'Jul 4', dow: 'Fri', name: 'Independence Day Spectacular', details: 'Racing + Fireworks!', special: 'FIREWORKS' },
+  { date: 'Aug 15-16', dow: 'Fri-Sat', name: 'Midwest Karting Grand Nationals', details: 'The biggest event of the year', special: '$4,000 TO WIN' },
+  { date: 'Sep 4', dow: 'Thu', name: 'Championship Night', details: 'Season points championship', special: 'SEASON FINALE' },
+];
+
+document.getElementById('scheduleGrid').innerHTML = events.map(e => {
+  const parts = e.date.split(' ');
+  return `<div class="event-card">
+    <div class="event-date">
+      <div class="event-date-month">${parts[0]}</div>
+      <div class="event-date-day">${parts[1]}</div>
+      <div class="event-date-dow">${e.dow}</div>
+    </div>
+    <div class="event-info">
+      <div class="event-name">${e.name}</div>
+      <div class="event-details">${e.details}</div>
+      ${e.special ? `<div class="event-special">${e.special}</div>` : ''}
+    </div>
+  </div>`;
+}).join('');
+
+// ===== CLASSES =====
+const classes = [
+  { icon: '&#128118;', name: 'Rookie Cage', detail: 'Beginners / No Points' },
+  { icon: '&#127937;', name: 'R-Box', detail: 'Restricted Box Stock' },
+  { icon: '&#128165;', name: 'Jr. Wing/Box Stock', detail: 'Junior Division' },
+  { icon: '&#127941;', name: 'Sportsman', detail: 'Intermediate' },
+  { icon: '&#9889;', name: '125/250 Wing', detail: 'Winged Karts' },
+  { icon: '&#128293;', name: 'Intermediate Wing', detail: 'Mid-level Winged' },
+  { icon: '&#128640;', name: '600 Micro Sprint', detail: 'Open Wheel Sprint' },
+  { icon: '&#9881;', name: 'Gopher Midgets', detail: 'Midget Cars' },
+  { icon: '&#127942;', name: 'Legends', detail: 'Legend Cars' },
+];
+
+document.getElementById('classesGrid').innerHTML = classes.map(c =>
+  `<div class="class-card">
+    <div class="class-icon">${c.icon}</div>
+    <div class="class-name">${c.name}</div>
+    <div class="class-detail">${c.detail}</div>
+  </div>`
+).join('');
+
+// ===== SOCIAL FEED =====
+const posts = [
+  { platform: 'Facebook', text: 'The 2026 season is almost here! Open Practice kicks off May 3rd. Who\'s ready to hit the dirt?', meta: '2 days ago' },
+  { platform: 'Instagram', text: 'New track prep underway! Clay is looking perfect for opening night. Can\'t wait to see you all out here.', meta: '4 days ago' },
+  { platform: 'TikTok', text: '600 Micro Sprint action from last season\'s championship night. 60+ MPH on a 1/6 mile oval = pure insanity.', meta: '1 week ago' },
+  { platform: 'YouTube', text: 'FULL REPLAY: 2025 Midwest Karting Grand Nationals main event. What a battle for the win!', meta: '2 weeks ago' },
+];
+
+document.getElementById('socialGrid').innerHTML = posts.map(p =>
+  `<div class="social-card">
+    <div class="social-card-platform">${p.platform}</div>
+    <div class="social-card-text">${p.text}</div>
+    <div class="social-card-meta">${p.meta}</div>
+  </div>`
+).join('');
+
+// ===== SCROLL ANIMATIONS =====
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.scroll-section').forEach(el => observer.observe(el));
+
+// ===== SMOOTH SCROLLING =====
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ===== NAV SCROLL EFFECT =====
+window.addEventListener('scroll', () => {
+  const nav = document.querySelector('nav');
+  if (window.scrollY > 50) {
+    nav.style.background = 'rgba(10,10,10,0.98)';
+  } else {
+    nav.style.background = 'rgba(10,10,10,0.95)';
+  }
+});
+</script>
+
+</body>
+</html>
