@@ -895,6 +895,217 @@
       transform: translateY(0);
     }
 
+    /* ===== CHATBOT ===== */
+    .chatbot-bubble {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: var(--green);
+      color: var(--black);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      box-shadow: 0 4px 20px rgba(0,212,0,0.4);
+      z-index: 200;
+      transition: transform 0.2s;
+      border: none;
+    }
+
+    .chatbot-bubble:hover { transform: scale(1.1); }
+
+    .chatbot-panel {
+      position: fixed;
+      bottom: 96px;
+      right: 24px;
+      width: 380px;
+      height: 520px;
+      background: var(--dark);
+      border: 1px solid var(--green);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 30px var(--green-glow);
+      z-index: 200;
+      display: none;
+      flex-direction: column;
+      overflow: hidden;
+    }
+
+    .chatbot-panel.open { display: flex; }
+
+    .chatbot-header {
+      background: var(--green);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .chatbot-header-info {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .chatbot-header-avatar {
+      width: 36px;
+      height: 36px;
+      background: var(--black);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 900;
+      font-size: 0.8rem;
+      color: var(--green);
+    }
+
+    .chatbot-header-name {
+      font-weight: 800;
+      color: var(--black);
+      font-size: 0.95rem;
+    }
+
+    .chatbot-header-status {
+      font-size: 0.7rem;
+      color: rgba(0,0,0,0.6);
+    }
+
+    .chatbot-close {
+      background: none;
+      border: none;
+      color: var(--black);
+      font-size: 1.25rem;
+      cursor: pointer;
+      font-weight: 700;
+    }
+
+    .chatbot-messages {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .chatbot-msg {
+      display: flex;
+      gap: 8px;
+      max-width: 85%;
+    }
+
+    .chatbot-msg.bot { align-self: flex-start; }
+    .chatbot-msg.user { align-self: flex-end; flex-direction: row-reverse; }
+
+    .chatbot-msg-avatar {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .chatbot-msg.bot .chatbot-msg-avatar { background: var(--green); color: var(--black); }
+    .chatbot-msg.user .chatbot-msg-avatar { background: var(--dark-border); color: var(--light-gray); }
+
+    .chatbot-msg-text {
+      padding: 0.6rem 0.9rem;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .chatbot-msg.bot .chatbot-msg-text {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      color: var(--light-gray);
+    }
+
+    .chatbot-msg.user .chatbot-msg-text {
+      background: var(--green);
+      color: var(--black);
+    }
+
+    .chatbot-quick-btns {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      padding: 0 1rem 0.5rem;
+    }
+
+    .chatbot-quick-btn {
+      background: var(--dark-card);
+      border: 1px solid var(--dark-border);
+      color: var(--green);
+      padding: 0.35rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      cursor: pointer;
+      font-weight: 600;
+      transition: all 0.2s;
+    }
+
+    .chatbot-quick-btn:hover {
+      background: var(--green);
+      color: var(--black);
+      border-color: var(--green);
+    }
+
+    .chatbot-input-area {
+      display: flex;
+      padding: 0.75rem;
+      gap: 8px;
+      border-top: 1px solid var(--dark-border);
+      background: var(--dark-card);
+    }
+
+    .chatbot-input-area input {
+      flex: 1;
+      background: var(--dark);
+      border: 1px solid var(--dark-border);
+      border-radius: 25px;
+      padding: 0.5rem 1rem;
+      color: var(--white);
+      font-size: 0.85rem;
+      outline: none;
+      font-family: inherit;
+    }
+
+    .chatbot-input-area input:focus { border-color: var(--green); }
+    .chatbot-input-area input::placeholder { color: var(--gray); }
+
+    .chatbot-send {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--green);
+      color: var(--black);
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 900;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 768px) {
+      .chatbot-panel {
+        width: calc(100vw - 32px);
+        right: 16px;
+        bottom: 88px;
+        height: 450px;
+      }
+    }
+
     /* Checkered flag divider */
     .checkered-divider {
       height: 8px;
@@ -1304,6 +1515,43 @@
   </div>
 </footer>
 
+<!-- CHATBOT -->
+<button class="chatbot-bubble" id="chatBubble" onclick="toggleChat()">&#128488;</button>
+
+<div class="chatbot-panel" id="chatPanel">
+  <div class="chatbot-header">
+    <div class="chatbot-header-info">
+      <div class="chatbot-header-avatar">TH</div>
+      <div>
+        <div class="chatbot-header-name">Thunder Hill Speedway</div>
+        <div class="chatbot-header-status">Online - Ask us anything!</div>
+      </div>
+    </div>
+    <button class="chatbot-close" onclick="toggleChat()">&times;</button>
+  </div>
+
+  <div class="chatbot-messages" id="chatMessages">
+    <div class="chatbot-msg bot">
+      <div class="chatbot-msg-avatar">TH</div>
+      <div class="chatbot-msg-text">Hey there, race fan! Welcome to Thunder Hill Speedway. I can help with schedule info, ticket prices, directions, racing classes, sponsorship, track rentals, and more. What can I help you with?</div>
+    </div>
+  </div>
+
+  <div class="chatbot-quick-btns" id="quickBtns">
+    <button class="chatbot-quick-btn" onclick="quickAsk('schedule')">Race Schedule</button>
+    <button class="chatbot-quick-btn" onclick="quickAsk('tickets')">Tickets & Prices</button>
+    <button class="chatbot-quick-btn" onclick="quickAsk('classes')">Racing Classes</button>
+    <button class="chatbot-quick-btn" onclick="quickAsk('directions')">Directions</button>
+    <button class="chatbot-quick-btn" onclick="quickAsk('sponsor')">Sponsorship</button>
+    <button class="chatbot-quick-btn" onclick="quickAsk('rental')">Track Rental</button>
+  </div>
+
+  <div class="chatbot-input-area">
+    <input type="text" id="chatInput" placeholder="Ask about racing, tickets, directions..." onkeypress="if(event.key==='Enter')sendChatMsg()">
+    <button class="chatbot-send" onclick="sendChatMsg()">&#10148;</button>
+  </div>
+</div>
+
 <script>
 // ===== COUNTDOWN TO NEXT EVENT =====
 function updateCountdown() {
@@ -1429,6 +1677,67 @@ window.addEventListener('scroll', () => {
     nav.style.background = 'rgba(10,10,10,0.95)';
   }
 });
+
+// ===== CHATBOT =====
+function toggleChat() {
+  const panel = document.getElementById('chatPanel');
+  const bubble = document.getElementById('chatBubble');
+  panel.classList.toggle('open');
+  bubble.style.display = panel.classList.contains('open') ? 'none' : 'flex';
+}
+
+const chatKB = {
+  schedule: "The 2026 season runs May through September!\n\nKey dates:\n- May 3: Open Practice\n- May 22: Season Opener (Opening Night!)\n- Thu nights: Regular racing at 7:00 PM\n- Jul 4: Independence Day Spectacular with fireworks\n- Aug 15-16: Midwest Karting Grand Nationals ($4,000 to win!)\n- Sep 4: Championship Night (Season Finale)\n\nGates open at 5:30 PM, hot laps at 6:30 PM. Saturday events start at 6:00 PM.",
+  tickets: "Tickets are super affordable!\n\n- Adults: $10\n- Kids 10 & under: FREE!\n- Parking: FREE!\n\nNo advance purchase needed — just show up at the gate. Bring lawn chairs or use the bleacher seating. BYOB beer is welcome (carry-in only).",
+  classes: "We run 9 racing classes in the Storm Series:\n\n1. Rookie Cage (beginners, no points)\n2. R-Box (restricted box stock)\n3. Jr. Wing/Box Stock (juniors)\n4. Sportsman (intermediate)\n5. 125/250 Wing (winged karts)\n6. Intermediate Wing (mid-level winged)\n7. 600 Micro Sprint (open wheel sprint)\n8. Gopher Midgets (midget cars)\n9. Legends (legend cars)\n\nEach class runs hot laps, a heat race, and a feature event. 60+ MPH action!",
+  directions: "Thunder Hill Speedway is located in Menomonie, Wisconsin — about 1 hour east of Minneapolis/St. Paul, MN.\n\nEasy access right off I-94. Look for signs as you get close to Menomonie.\n\nPlenty of free parking on-site, including space for RVs and trailers.",
+  sponsor: "We offer sponsorship packages for businesses of all sizes!\n\nBronze ($250): Website logo, social media mention, 2 season passes\nSilver ($500): + Track banner, PA announcements, 4 passes\nGold ($1,000): + Class naming rights, featured social posts, VIP pit access, 8 passes\nTitle (Custom): Event title sponsorship, logo on all materials, exclusive VIP experience\n\nPut your brand in front of thousands of racing fans every week! Contact us to get started.",
+  rental: "Thunder Hill Speedway is available for private rental!\n\nPerfect for:\n- Practice days\n- Corporate outings\n- Birthday parties\n- Team events\n- Special occasions\n\nYou get full track access, PA system, bleacher seating, and safety crew. Concessions can be arranged.\n\nContact us for pricing — rates vary by event type and duration.",
+  food: "We have a full concession stand on-site! Hot dogs, burgers, snacks, cold drinks, and more.\n\nBYOB beer is welcome — carry-in only. No other outside food or drinks allowed.\n\nGrab a burger, find your seat, and enjoy the racing!",
+  race: "Every race night features three stages for each class:\n\n1. Hot Laps — warm-up practice on the track\n2. Heat Races — qualifying races to set the lineup\n3. Feature Event — the main race!\n\nWith 9 classes running, you get a full night of non-stop racing action. 60+ MPH on a 1/6 mile clay oval!",
+  grand: "The 2026 Midwest Karting Grand Nationals is our biggest event of the year!\n\nAugust 15-16 (Friday & Saturday)\n$4,000 to win the Micro Showdown!\n\nRacers come from all over the Midwest to compete. It's two full days of the best kart racing you'll ever see. Don't miss it!",
+  default: "Great question! Here's what I can help with:\n\n- Race schedule & upcoming events\n- Ticket prices & admission info\n- Racing classes & how they work\n- Directions to the track\n- Sponsorship opportunities\n- Track rental for private events\n- Food & concessions\n- Grand Nationals info\n\nJust ask, or tap one of the quick buttons below!"
+};
+
+function matchResponse(msg) {
+  const lower = msg.toLowerCase();
+  if (lower.match(/schedul|when|next race|race night|season|what time|gate/)) return chatKB.schedule;
+  if (lower.match(/ticket|price|cost|admission|how much|free|pay|kid/)) return chatKB.tickets;
+  if (lower.match(/class|division|rookie|micro sprint|midget|legend|sportsman|wing|r-box|storm/)) return chatKB.classes;
+  if (lower.match(/direction|where|location|address|map|drive|how to get|i-94|minneapolis/)) return chatKB.directions;
+  if (lower.match(/sponsor|advertis|partner|brand|business|banner|package/)) return chatKB.sponsor;
+  if (lower.match(/rent|rental|private|corporate|birthday|party|event|book/)) return chatKB.rental;
+  if (lower.match(/food|eat|drink|beer|concession|byob|burger|hot dog/)) return chatKB.food;
+  if (lower.match(/how.*work|heat|feature|hot lap|format|race.*night/)) return chatKB.race;
+  if (lower.match(/grand national|micro showdown|\$4|biggest|august/)) return chatKB.grand;
+  return chatKB.default;
+}
+
+function addChatMsg(text, isUser) {
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = `chatbot-msg ${isUser ? 'user' : 'bot'}`;
+  div.innerHTML = `<div class="chatbot-msg-avatar">${isUser ? 'You' : 'TH'}</div><div class="chatbot-msg-text">${text.replace(/\n/g, '<br>')}</div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function sendChatMsg() {
+  const input = document.getElementById('chatInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+  addChatMsg(msg, true);
+  input.value = '';
+  document.getElementById('quickBtns').style.display = 'none';
+  setTimeout(() => addChatMsg(matchResponse(msg), false), 600);
+}
+
+function quickAsk(topic) {
+  const labels = { schedule:'Race schedule?', tickets:'Ticket prices?', classes:'What classes do you run?', directions:'How do I get there?', sponsor:'Sponsorship info?', rental:'Track rental info?' };
+  addChatMsg(labels[topic], true);
+  document.getElementById('quickBtns').style.display = 'none';
+  setTimeout(() => addChatMsg(chatKB[topic], false), 600);
+}
 </script>
 
 </body>
